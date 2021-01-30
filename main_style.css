@@ -109,8 +109,13 @@ body {
   -ms-flex: 80%; /* IE10 */
   flex: 80%;
   background-color: white;
+}
+
+.mainmapframe {   
+  background-color: white;
   padding: 20px;
 }
+
 
 .main iframe {
   overflow:hidden;

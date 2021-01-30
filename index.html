@@ -5,6 +5,7 @@
     <title>Edmonton Centre Maps</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -16,13 +17,12 @@
 
     <div class="navbar">
       <a href="#home">Home</a>
-      <a href="#news">News</a>
       <div class="dropdown">
-      <button class="dropbtn" onclick="myFunction()">Dropdown
+      <button class="dropbtn" onclick="myFunction()">Maps
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content" id="myDropdown">
-        <a href="#">Link 1</a>
+        <a href="./QGIS2WEBExports/MapTest5/index.html" target="mapframe">Map 1</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
       </div>
@@ -67,15 +67,14 @@
       </div>
       
       <div class="main">
-        <h2>Edmonton Centre 2019 Election Polling Divisions</h2>
-        <h5>A simple map that just displays polling divisions.</h5>
+        
 
         
 
 
 
 
-        <iframe class="mapframe" id="myframe" src="./QGIS2WEBExports/MapTest6/index.html" style="width: 100%; min-height: 500px; height: 70vh; max-height: 100vh;"></iframe>
+        <iframe name="mapframe" src="./mapframes/maptest6.html" style="width: 100%; min-height: 500px; height: 70vh; max-height: 100vh;"></iframe>
 
 
         
