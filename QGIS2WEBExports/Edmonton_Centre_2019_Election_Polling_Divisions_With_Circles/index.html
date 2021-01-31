@@ -8,6 +8,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
@@ -34,6 +35,7 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
         <script src="data/EdmontonCentre2019PollbypollMasterMapShapefile_2.js"></script>
         <script src="data/EdmontonCentre2019PollbypollTotalVoteCircles_3.js"></script>
         <script>
@@ -184,7 +186,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(152,152,152,0.34901960784313724)',
+                fillColor: 'rgba(128,128,128,0.396078431372549)',
                 interactive: true,
             }
         }
@@ -354,6 +356,13 @@
         var baseMaps = {};
         L.control.layers(baseMaps,{'Edmonton Centre - 2019 Poll-by-poll Total Vote Circles<br /><table><tr><td style="text-align: center;"><img src="legend/EdmontonCentre2019PollbypollTotalVoteCircles_3_Conservative0.png" /></td><td>Conservative</td></tr><tr><td style="text-align: center;"><img src="legend/EdmontonCentre2019PollbypollTotalVoteCircles_3_Liberal1.png" /></td><td>Liberal</td></tr><tr><td style="text-align: center;"><img src="legend/EdmontonCentre2019PollbypollTotalVoteCircles_3_NDP2.png" /></td><td>NDP</td></tr></table>': layer_EdmontonCentre2019PollbypollTotalVoteCircles_3,'<img src="legend/EdmontonCentre2019PollbypollMasterMapShapefile_2.png" /> Edmonton Centre - 2019 Poll-by-poll Master Map Shapefile': layer_EdmontonCentre2019PollbypollMasterMapShapefile_2,"Google Road": layer_GoogleRoad_1,"Google Satellite": layer_GoogleSatellite_0,}).addTo(map);
         setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_EdmontonCentre2019PollbypollMasterMapShapefile_2,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'PollNum'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
         resetLabels([layer_EdmontonCentre2019PollbypollMasterMapShapefile_2]);
         map.on("zoomend", function(){
             resetLabels([layer_EdmontonCentre2019PollbypollMasterMapShapefile_2]);
