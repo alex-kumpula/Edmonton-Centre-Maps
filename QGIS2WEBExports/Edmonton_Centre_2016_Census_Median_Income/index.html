@@ -36,8 +36,8 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="js/leaflet-search.js"></script>
-        <script src="data/PollingDivisionOutlines_1.js"></script>
-        <script src="data/2016MedianIncomebyCensusDiseminationArea_2.js"></script>
+        <script src="data/PollingDivisionOutlines_2.js"></script>
+        <script src="data/2016MedianIncomebyCensusDiseminationArea_3.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -78,10 +78,10 @@
                 map.fitBounds(bounds_group.getBounds());
             }
         }
-        map.createPane('pane_GoogleRoad_0');
-        map.getPane('pane_GoogleRoad_0').style.zIndex = 400;
-        var layer_GoogleRoad_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleRoad_0',
+        map.createPane('pane_GoogleSatellite_0');
+        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
+        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_0',
             opacity: 1.0,
             attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
@@ -89,9 +89,22 @@
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        layer_GoogleRoad_0;
-        map.addLayer(layer_GoogleRoad_0);
-        function pop_PollingDivisionOutlines_1(feature, layer) {
+        layer_GoogleSatellite_0;
+        map.addLayer(layer_GoogleSatellite_0);
+        map.createPane('pane_GoogleRoad_1');
+        map.getPane('pane_GoogleRoad_1').style.zIndex = 401;
+        var layer_GoogleRoad_1 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleRoad_1',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleRoad_1;
+        map.addLayer(layer_GoogleRoad_1);
+        function pop_PollingDivisionOutlines_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -162,36 +175,36 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_PollingDivisionOutlines_1_0() {
+        function style_PollingDivisionOutlines_2_0() {
             return {
-                pane: 'pane_PollingDivisionOutlines_1',
+                pane: 'pane_PollingDivisionOutlines_2',
                 opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
+                color: 'rgba(1,0,251,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 8.0, 
+                weight: 6.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(128,128,128,0.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_PollingDivisionOutlines_1');
-        map.getPane('pane_PollingDivisionOutlines_1').style.zIndex = 401;
-        map.getPane('pane_PollingDivisionOutlines_1').style['mix-blend-mode'] = 'normal';
-        var layer_PollingDivisionOutlines_1 = new L.geoJson(json_PollingDivisionOutlines_1, {
+        map.createPane('pane_PollingDivisionOutlines_2');
+        map.getPane('pane_PollingDivisionOutlines_2').style.zIndex = 402;
+        map.getPane('pane_PollingDivisionOutlines_2').style['mix-blend-mode'] = 'normal';
+        var layer_PollingDivisionOutlines_2 = new L.geoJson(json_PollingDivisionOutlines_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PollingDivisionOutlines_1',
-            layerName: 'layer_PollingDivisionOutlines_1',
-            pane: 'pane_PollingDivisionOutlines_1',
-            onEachFeature: pop_PollingDivisionOutlines_1,
-            style: style_PollingDivisionOutlines_1_0,
+            dataVar: 'json_PollingDivisionOutlines_2',
+            layerName: 'layer_PollingDivisionOutlines_2',
+            pane: 'pane_PollingDivisionOutlines_2',
+            onEachFeature: pop_PollingDivisionOutlines_2,
+            style: style_PollingDivisionOutlines_2_0,
         });
-        bounds_group.addLayer(layer_PollingDivisionOutlines_1);
-        map.addLayer(layer_PollingDivisionOutlines_1);
-        function pop_2016MedianIncomebyCensusDiseminationArea_2(feature, layer) {
+        bounds_group.addLayer(layer_PollingDivisionOutlines_2);
+        map.addLayer(layer_PollingDivisionOutlines_2);
+        function pop_2016MedianIncomebyCensusDiseminationArea_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -209,6 +222,9 @@
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Descript_1'] !== null ? autolinker.link(feature.properties['Descript_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Descript_2'] !== null ? autolinker.link(feature.properties['Descript_2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['PollNum'] !== null ? autolinker.link(feature.properties['PollNum'].toLocaleString()) : '') + '</td>\
@@ -336,15 +352,15 @@
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-        function style_2016MedianIncomebyCensusDiseminationArea_2_0(feature) {
+        function style_2016MedianIncomebyCensusDiseminationArea_3_0(feature) {
             var context = {
                 feature: feature,
                 variables: {}
             };
             // Start of if blocks and style check logic
-            if (exp_2016MedianIncomebyCensusDiseminationArea_2rule0_eval_expression(context)) {
+            if (exp_2016MedianIncomebyCensusDiseminationArea_3rule1_eval_expression(context)) {
                   return {
-                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_2',
+                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_3',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -357,9 +373,9 @@
                 interactive: true,
             };
                 }
-                else if (exp_2016MedianIncomebyCensusDiseminationArea_2rule1_eval_expression(context)) {
+                else if (exp_2016MedianIncomebyCensusDiseminationArea_3rule2_eval_expression(context)) {
                   return {
-                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_2',
+                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_3',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -372,9 +388,9 @@
                 interactive: true,
             };
                 }
-                else if (exp_2016MedianIncomebyCensusDiseminationArea_2rule2_eval_expression(context)) {
+                else if (exp_2016MedianIncomebyCensusDiseminationArea_3rule3_eval_expression(context)) {
                   return {
-                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_2',
+                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_3',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -387,9 +403,9 @@
                 interactive: true,
             };
                 }
-                else if (exp_2016MedianIncomebyCensusDiseminationArea_2rule3_eval_expression(context)) {
+                else if (exp_2016MedianIncomebyCensusDiseminationArea_3rule4_eval_expression(context)) {
                   return {
-                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_2',
+                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_3',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -402,9 +418,9 @@
                 interactive: true,
             };
                 }
-                else if (exp_2016MedianIncomebyCensusDiseminationArea_2rule4_eval_expression(context)) {
+                else if (exp_2016MedianIncomebyCensusDiseminationArea_3rule5_eval_expression(context)) {
                   return {
-                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_2',
+                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_3',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -417,9 +433,9 @@
                 interactive: true,
             };
                 }
-                else if (exp_2016MedianIncomebyCensusDiseminationArea_2rule5_eval_expression(context)) {
+                else if (exp_2016MedianIncomebyCensusDiseminationArea_3rule6_eval_expression(context)) {
                   return {
-                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_2',
+                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_3',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -434,7 +450,7 @@
                 }
             else {
                 return {
-                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_2',
+                pane: 'pane_2016MedianIncomebyCensusDiseminationArea_3',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -448,20 +464,20 @@
             };
             }
         }
-        map.createPane('pane_2016MedianIncomebyCensusDiseminationArea_2');
-        map.getPane('pane_2016MedianIncomebyCensusDiseminationArea_2').style.zIndex = 402;
-        map.getPane('pane_2016MedianIncomebyCensusDiseminationArea_2').style['mix-blend-mode'] = 'normal';
-        var layer_2016MedianIncomebyCensusDiseminationArea_2 = new L.geoJson(json_2016MedianIncomebyCensusDiseminationArea_2, {
+        map.createPane('pane_2016MedianIncomebyCensusDiseminationArea_3');
+        map.getPane('pane_2016MedianIncomebyCensusDiseminationArea_3').style.zIndex = 403;
+        map.getPane('pane_2016MedianIncomebyCensusDiseminationArea_3').style['mix-blend-mode'] = 'normal';
+        var layer_2016MedianIncomebyCensusDiseminationArea_3 = new L.geoJson(json_2016MedianIncomebyCensusDiseminationArea_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_2016MedianIncomebyCensusDiseminationArea_2',
-            layerName: 'layer_2016MedianIncomebyCensusDiseminationArea_2',
-            pane: 'pane_2016MedianIncomebyCensusDiseminationArea_2',
-            onEachFeature: pop_2016MedianIncomebyCensusDiseminationArea_2,
-            style: style_2016MedianIncomebyCensusDiseminationArea_2_0,
+            dataVar: 'json_2016MedianIncomebyCensusDiseminationArea_3',
+            layerName: 'layer_2016MedianIncomebyCensusDiseminationArea_3',
+            pane: 'pane_2016MedianIncomebyCensusDiseminationArea_3',
+            onEachFeature: pop_2016MedianIncomebyCensusDiseminationArea_3,
+            style: style_2016MedianIncomebyCensusDiseminationArea_3_0,
         });
-        bounds_group.addLayer(layer_2016MedianIncomebyCensusDiseminationArea_2);
-        map.addLayer(layer_2016MedianIncomebyCensusDiseminationArea_2);
+        bounds_group.addLayer(layer_2016MedianIncomebyCensusDiseminationArea_3);
+        map.addLayer(layer_2016MedianIncomebyCensusDiseminationArea_3);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -473,24 +489,24 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'2016 Median Income by Census Disemination Area<br /><table><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_2_0300000.png" /></td><td>0 - 30000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_2_30000350001.png" /></td><td>30000 - 35000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_2_35000400002.png" /></td><td>35000 - 40000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_2_40000450003.png" /></td><td>40000 - 45000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_2_45000550004.png" /></td><td>45000 - 55000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_2_550005.png" /></td><td>>55000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_2_6.png" /></td><td></td></tr></table>': layer_2016MedianIncomebyCensusDiseminationArea_2,'<img src="legend/PollingDivisionOutlines_1.png" /> Polling Division Outlines': layer_PollingDivisionOutlines_1,"Google Road": layer_GoogleRoad_0,}).addTo(map);
+        L.control.layers(baseMaps,{'2016 Median Income by Census Disemination Area<br /><table><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_3_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_3_0300001.png" /></td><td>0 - 30000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_3_30000350002.png" /></td><td>30000 - 35000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_3_35000400003.png" /></td><td>35000 - 40000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_3_40000450004.png" /></td><td>40000 - 45000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_3_45000550005.png" /></td><td>45000 - 55000</td></tr><tr><td style="text-align: center;"><img src="legend/2016MedianIncomebyCensusDiseminationArea_3_550006.png" /></td><td>>55000</td></tr></table>': layer_2016MedianIncomebyCensusDiseminationArea_3,'<img src="legend/PollingDivisionOutlines_2.png" /> Polling Division Outlines': layer_PollingDivisionOutlines_2,"Google Road": layer_GoogleRoad_1,"Google Satellite": layer_GoogleSatellite_0,}).addTo(map);
         setBounds();
         map.addControl(new L.Control.Search({
-            layer: layer_2016MedianIncomebyCensusDiseminationArea_2,
+            layer: layer_2016MedianIncomebyCensusDiseminationArea_3,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'PollNum'}));
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
-        resetLabels([layer_PollingDivisionOutlines_1]);
+        resetLabels([layer_PollingDivisionOutlines_2]);
         map.on("zoomend", function(){
-            resetLabels([layer_PollingDivisionOutlines_1]);
+            resetLabels([layer_PollingDivisionOutlines_2]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_PollingDivisionOutlines_1]);
+            resetLabels([layer_PollingDivisionOutlines_2]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_PollingDivisionOutlines_1]);
+            resetLabels([layer_PollingDivisionOutlines_2]);
         });
         </script>
     </body>
