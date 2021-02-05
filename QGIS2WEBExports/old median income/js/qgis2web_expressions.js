@@ -757,7 +757,7 @@ function fnc_project_color(values, context) {
 
 
 
-function exp_2016MedianIncomebyCensusDiseminationArea_2rule1_eval_expression(context) {
+function exp_2016MedianIncomebyCensusDiseminationArea_3rule1_eval_expression(context) {
     // "663T" >= 0.1 AND "663T" <= 30000
 
     var feature = context.feature;
@@ -770,7 +770,7 @@ function exp_2016MedianIncomebyCensusDiseminationArea_2rule1_eval_expression(con
 }
 
 
-function exp_2016MedianIncomebyCensusDiseminationArea_2rule2_eval_expression(context) {
+function exp_2016MedianIncomebyCensusDiseminationArea_3rule2_eval_expression(context) {
     // "663T" > 30000 AND "663T" <= 35000
 
     var feature = context.feature;
@@ -783,7 +783,7 @@ function exp_2016MedianIncomebyCensusDiseminationArea_2rule2_eval_expression(con
 }
 
 
-function exp_2016MedianIncomebyCensusDiseminationArea_2rule3_eval_expression(context) {
+function exp_2016MedianIncomebyCensusDiseminationArea_3rule3_eval_expression(context) {
     // "663T" > 35000 AND "663T" <= 40000
 
     var feature = context.feature;
@@ -796,7 +796,7 @@ function exp_2016MedianIncomebyCensusDiseminationArea_2rule3_eval_expression(con
 }
 
 
-function exp_2016MedianIncomebyCensusDiseminationArea_2rule4_eval_expression(context) {
+function exp_2016MedianIncomebyCensusDiseminationArea_3rule4_eval_expression(context) {
     // "663T" > 40000 AND "663T" <= 45000
 
     var feature = context.feature;
@@ -809,7 +809,7 @@ function exp_2016MedianIncomebyCensusDiseminationArea_2rule4_eval_expression(con
 }
 
 
-function exp_2016MedianIncomebyCensusDiseminationArea_2rule5_eval_expression(context) {
+function exp_2016MedianIncomebyCensusDiseminationArea_3rule5_eval_expression(context) {
     // "663T" > 45000 AND "663T" <= 55000
 
     var feature = context.feature;
@@ -822,7 +822,7 @@ function exp_2016MedianIncomebyCensusDiseminationArea_2rule5_eval_expression(con
 }
 
 
-function exp_2016MedianIncomebyCensusDiseminationArea_2rule6_eval_expression(context) {
+function exp_2016MedianIncomebyCensusDiseminationArea_3rule6_eval_expression(context) {
     // "663T" > 55000 AND "663T" <= 92416
 
     var feature = context.feature;
