@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+  <head>
+    <link rel="stylesheet" href="main_style.css">
+    <title>Edmonton Centre Maps</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/qgis2web.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/leaflet-search.css">
+    <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+    <link rel="stylesheet" href="css/leaflet-measure.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body style="height: auto;">
+
+    <div class="header">
+      <h1>Edmonton Centre Maps</h1>
+      <p>Who even needs Elections Atlas anyways?</p>
+    </div>
+
+    <div class="navbar">
+      <a href="./mapframes/Edmonton_Centre_2019_Election_Polling_Divisions_With_Circles.html" target="mapframe">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="myFunction()">Maps
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+          <a href="./mapframes/Edmonton_Centre_2019_First_Place.html" target="mapframe">2019 First Places</a>
+          <a href="./mapframes/Edmonton_Centre_2019_Percent_More_Votes_Needed_For_Liberal_Win.html" target="mapframe">2019 % Additional Votes Needed for Liberal Win</a>
+          <a href="./mapframes/Edmonton_Centre_2016_Census_Median_Income.html" target="mapframe">2016 Census Median Income</a>
+          <a href="#">WIP</a>
+          <a href="#">WIP</a>
+        </div>
+      </div> 
+    </div>
+
+    <script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(e) {
+      if (!e.target.matches('.dropbtn')) {
+      var myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+          myDropdown.classList.remove('show');
+        }
+      }
+    }
+    </script>
+
+    <div class="row">
+      <div class="side">
+        
+        <h2>How It Works</h2>
+        <h4>Search by Poll #</h4>
+        <p>The binoculars button at the top left corner allows you to <strong>search the map</strong> by poll number.</p>
+        <div class="center" style="height: auto;">
+          <img src="images/binoculars.png" style="width: 60px; height: 60px;"><img>
+        </div>
+        <p>If it says "location not found", just try again and the results should display the second time.</p>
+        
+        <h4>View Legend & Layers</h4>
+        <p>The legend/layers button at the top right allows you to toggle map layers and view their corresponding legends to make sense of the data.</p>
+        <div class="center" style="height: auto;">
+          <img src="images/layers.png" style="width: 60px; height: 60px;"><img>
+        </div>
+        <br>
+        <p>If you have any questions, please email alex.kumpula01@gmail.com</p>
+        
+      </div>
+      
+      <div class="main">
+
+
+        <div id="map" style="width: 100%; height: 95vh;"></div>
+
+        <script src="js/qgis2web_expressions.js"></script>
+
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        
+        <script src="mapdata/test1/PollingDivisionOutlines_2.js"></script>
+        <script src="mapdata/test1/2016MedianIncomebyCensusDiseminationArea_3.js"></script>
+
+        <script src="js/create-map.js"></script>
+
+
+
+        <!--Add in geojson data & qgisexpressions after-->
+
+
+
+        
+        
+        
+      </div>
+    </div>
+  </body>
+</html>
